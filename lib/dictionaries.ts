@@ -9,8 +9,8 @@ const dictionaries = {
     },
     contact: {
       title: 'Kontakt',
-      email: 'emial@email',
-      social: 'Instagram / Behance / Dribbble'
+      email: 'justyna.srodon@wp.pl',
+      phone: '733 063 550'
     },
     footer: {
       rights: 'Wszelkie prawa zastrzeżone.',
@@ -33,8 +33,8 @@ const dictionaries = {
     },
     contact: {
       title: 'Contact',
-      email: 'hello@nataliaportfolio.com',
-      social: 'Instagram / Behance / Dribbble'
+      email: 'justyna.srodon@wp.pl',
+      phone: '733 063 550'
     },
     footer: {
       rights: 'All rights reserved.',
