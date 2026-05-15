@@ -20,6 +20,7 @@ const dictionaries = {
       langCode: 'en',
       bio: 'O mnie',
       portfolio: 'Portfolio',
+      exhibitions: 'Wystawy',
       contact: 'Kontakt'
     }
   },
@@ -43,6 +44,7 @@ const dictionaries = {
       language: 'PL',
       langCode: 'pl',
       bio: 'About',
+      exhibitions: 'Exhibitions',
       portfolio: 'Portfolio',
       contact: 'Contact'
     }

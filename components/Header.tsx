@@ -12,7 +12,7 @@ export default function Header({
   artistName
 }: {
   lang: 'pl' | 'en',
-  navDict: { language: string, langCode: string, bio: string, portfolio: string, contact: string },
+  navDict: { language: string, langCode: string, bio: string, portfolio: string, exhibitions: string, contact: string },
   artistName: string
 }) {
   const [isScrolledPastBio, setIsScrolledPastBio] = useState(false);
@@ -77,6 +77,8 @@ export default function Header({
           >
             {lang === 'pl' ? 'Galeria' : 'Gallery'}
           </button>
+
+          <a href="#exhibitions" className="text-white/50 hover:text-white transition-colors">{navDict.exhibitions}</a>
 
           <a href="#contact" className="text-white/50 hover:text-white transition-colors">{navDict.contact}</a>
         </nav>

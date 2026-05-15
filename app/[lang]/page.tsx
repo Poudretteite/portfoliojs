@@ -1,33 +1,29 @@
 import { getDictionary, Locale } from '@/lib/dictionaries';
 import { projects } from '@/lib/projects';
+import { exhibitionsData } from '@/lib/exhibitions';
+
 import Header from '@/components/Header';
 import ProjectCard from '@/components/ProjectCard';
 import FadeIn from '@/components/FadeIn';
 
+import BioSection from '@/components/BioSection';
+
 export default async function Home({ params }: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await params;
   const dict = getDictionary(lang);
+  const plDict = getDictionary('pl');
+  const enDict = getDictionary('en');
 
   return (
     <div className="min-h-screen flex flex-col">
       <Header lang={lang} navDict={dict.nav} artistName={dict.hero.title} />
 
-      {/* Hero (Bio) */}
-      <section
-        id="bio"
-        className="relative w-full mb-8 md:mb-12 scroll-mt-32 min-h-[40vh] lg:min-h-[50vh] flex flex-col justify-center overflow-hidden pt-24 pb-8"
-      >
-        <div className="relative z-10 w-full px-6 md:px-8 lg:px-12 flex">
-          <div className="w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl text-left">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-8 text-white/90 drop-shadow-xl">
-              {dict.hero.title}
-            </h2>
-            <p className="text-lg md:text-lg text-white/80 font-thin leading-relaxed drop-shadow-lg whitespace-pre-wrap">
-              {dict.hero.bio}
-            </p>
-          </div>
-        </div>
-      </section>
+      <BioSection
+        title={dict.hero.title}
+        bioPl={plDict.hero.bio}
+        bioEn={enDict.hero.bio}
+        initialLang={lang} // Ustawia domyślny język na taki, jaki ma cała strona na start
+      />
 
       <main className="flex-1 w-full max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12">
 
@@ -51,8 +47,41 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
           ))}
         </section>
 
+        {/* Sekcja Wystaw */}
+        <section id="exhibitions" className="w-full flex flex-col pt-16 md:pt-24">
+          <div className="flex items-center justify-center w-full mb-16 md:mb-24">
+            <hr className="flex-grow border-t border-white/20" />
+            <h3 className="px-6 md:px-10 text-3xl md:text-4xl lg:text-6xl font-thin text-center text-white/90 uppercase tracking-[0.5em]">
+              {lang === 'pl' ? 'Wystawy' : 'Exhibitions'}
+            </h3>
+            <hr className="flex-grow border-t border-white/20" />
+          </div>
+
+          <div className="flex flex-col gap-12 md:gap-16 max-w-4xl">
+            {exhibitionsData.map((category, index) => (
+              <div key={index}>
+                {/* 2. Zmienione na category.title[lang] */}
+                <h4 className="text-xl md:text-2xl font-light tracking-widest text-white/80 uppercase mb-8">
+                  {category.title}
+                </h4>
+                <ul className="flex flex-col gap-6">
+                  {category.items.map((item, idx) => (
+                    <li key={idx} className="flex flex-col md:flex-row gap-2 md:gap-6 text-white/60 font-light text-base md:text-lg leading-relaxed">
+                      <span className="text-white/90 font-medium shrink-0 md:w-28 whitespace-nowrap">
+                        {item.year}
+                      </span>
+                      {/* 3. Zmienione na item.desc[lang] */}
+                      <span>{item.desc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Footer (Contact) */}
-        <footer id="contact" className="pb-14 md:pb-20 flex flex-col items-center justify-center text-center text-sm scroll-mt-32 mt-12">
+        <footer id="contact" className="pb-14 md:pb-20 flex flex-col items-center justify-center text-center text-sm scroll-mt-32 mt-24">
           <div className="mb-12">
             <h4 className="text-white/90 font-medium uppercase tracking-widest mb-6">{dict.contact.title}</h4>
 
