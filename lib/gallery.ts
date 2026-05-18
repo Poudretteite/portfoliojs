@@ -8,372 +8,235 @@ export interface GalleryImage {
 }
 
 export const galleryImages: GalleryImage[] = [
-    // --- obrazy/obrazy na strone/ ---
+    // --- obrazy/obrazy na stronę/ ---
+    // Zdjęcia 1-9
     {
         id: 'on-1',
-        src: '/images/obrazy/obrazy na strone/_MG_0663.JPG',
-        alt: { pl: 'Obraz 1', en: 'Painting 1' }
+        src: '/images/obrazy/obrazy na stronę/zdjęcia1.JPG',
+        alt: { pl: 'Zdjęcie 1', en: 'Photo 1' }
     },
     {
         id: 'on-2',
-        src: '/images/obrazy/obrazy na strone/_MG_0664.JPG',
-        alt: { pl: 'Obraz 2', en: 'Painting 2' }
+        src: '/images/obrazy/obrazy na stronę/zdjęcia2.JPG',
+        alt: { pl: 'Zdjęcie 2', en: 'Photo 2' }
     },
     {
         id: 'on-3',
-        src: '/images/obrazy/obrazy na strone/_MG_0666.JPG',
-        alt: { pl: 'Obraz 3', en: 'Painting 3' }
+        src: '/images/obrazy/obrazy na stronę/zdjęcia3.JPG',
+        alt: { pl: 'Zdjęcie 3', en: 'Photo 3' }
     },
     {
         id: 'on-4',
-        src: '/images/obrazy/obrazy na strone/_MG_0667.JPG',
-        alt: { pl: 'Obraz 4', en: 'Painting 4' }
+        src: '/images/obrazy/obrazy na stronę/zdjęcia4.JPG',
+        alt: { pl: 'Zdjęcie 4', en: 'Photo 4' }
     },
     {
         id: 'on-5',
-        src: '/images/obrazy/obrazy na strone/_MG_1562.jpg',
-        alt: { pl: 'Obraz 5', en: 'Painting 5' }
+        src: '/images/obrazy/obrazy na stronę/zdjęcia5.jpg',
+        alt: { pl: 'Zdjęcie 5', en: 'Photo 5' }
     },
     {
         id: 'on-6',
-        src: '/images/obrazy/obrazy na strone/_MG_1569.jpg',
-        alt: { pl: 'Obraz 6', en: 'Painting 6' }
+        src: '/images/obrazy/obrazy na stronę/zdjęcia6.jpg',
+        alt: { pl: 'Zdjęcie 6', en: 'Photo 6' }
     },
     {
         id: 'on-7',
-        src: '/images/obrazy/obrazy na strone/_MG_1571.jpg',
-        alt: { pl: 'Obraz 7', en: 'Painting 7' }
+        src: '/images/obrazy/obrazy na stronę/zdjęcia7.jpg',
+        alt: { pl: 'Zdjęcie 7', en: 'Photo 7' }
     },
     {
         id: 'on-8',
-        src: '/images/obrazy/obrazy na strone/1.3.jpg',
-        alt: { pl: 'Obraz 8', en: 'Painting 8' }
+        src: '/images/obrazy/obrazy na stronę/zdjęcia8.jpg',
+        alt: { pl: 'Zdjęcie 8', en: 'Photo 8' }
     },
     {
         id: 'on-9',
-        src: '/images/obrazy/obrazy na strone/2.2.jpg',
-        alt: { pl: 'Obraz 9', en: 'Painting 9' }
+        src: '/images/obrazy/obrazy na stronę/zdjęcia9.jpg',
+        alt: { pl: 'Zdjęcie 9', en: 'Photo 9' }
     },
+
+    // Cyfra 1-7 (bez 3)
     {
         id: 'on-10',
-        src: '/images/obrazy/obrazy na strone/2.jpg',
-        alt: { pl: 'Obraz 10', en: 'Painting 10' }
+        src: '/images/obrazy/obrazy na stronę/zzcyfra1.jpg',
+        alt: { pl: 'Cyfra 1', en: 'Digital 1' }
     },
     {
         id: 'on-11',
-        src: '/images/obrazy/obrazy na strone/3.jpg',
-        alt: { pl: 'Obraz 11', en: 'Painting 11' }
+        src: '/images/obrazy/obrazy na stronę/zzcyfra2.jpg',
+        alt: { pl: 'Cyfra 2', en: 'Digital 2' }
     },
     {
         id: 'on-12',
-        src: '/images/obrazy/obrazy na strone/20220312_000231.jpg',
-        alt: { pl: 'Obraz 12', en: 'Painting 12' }
+        src: '/images/obrazy/obrazy na stronę/zzcyfra4.jpg',
+        alt: { pl: 'Cyfra 4', en: 'Digital 4' }
     },
     {
         id: 'on-13',
-        src: '/images/obrazy/obrazy na strone/20220317_155125.jpg',
-        alt: { pl: 'Obraz 13', en: 'Painting 13' }
+        src: '/images/obrazy/obrazy na stronę/zzcyfra5.jpg',
+        alt: { pl: 'Cyfra 5', en: 'Digital 5' }
     },
     {
         id: 'on-14',
-        src: '/images/obrazy/obrazy na strone/20220318_170515.jpg',
-        alt: { pl: 'Obraz 14', en: 'Painting 14' }
+        src: '/images/obrazy/obrazy na stronę/zzcyfra6.jpg',
+        alt: { pl: 'Cyfra 6', en: 'Digital 6' }
     },
     {
         id: 'on-15',
-        src: '/images/obrazy/obrazy na strone/20220318_170823.jpg',
-        alt: { pl: 'Obraz 15', en: 'Painting 15' }
+        src: '/images/obrazy/obrazy na stronę/zzcyfra7.jpg',
+        alt: { pl: 'Cyfra 7', en: 'Digital 7' }
     },
+
+    // Portrety 1-8
     {
         id: 'on-16',
-        src: '/images/obrazy/obrazy na strone/20240221_155630.jpg',
-        alt: { pl: 'Obraz 16', en: 'Painting 16' }
+        src: '/images/obrazy/obrazy na stronę/zzportrety1.jpg',
+        alt: { pl: 'Portret 1', en: 'Portrait 1' }
     },
     {
         id: 'on-17',
-        src: '/images/obrazy/obrazy na strone/20240303_190803z.jpg',
-        alt: { pl: 'Obraz 17', en: 'Painting 17' }
+        src: '/images/obrazy/obrazy na stronę/zzportrety2.jpg',
+        alt: { pl: 'Portret 2', en: 'Portrait 2' }
     },
     {
         id: 'on-18',
-        src: '/images/obrazy/obrazy na strone/20240607_130749.jpg',
-        alt: { pl: 'Obraz 18', en: 'Painting 18' }
+        src: '/images/obrazy/obrazy na stronę/zzportrety3,3.jpg',
+        alt: { pl: 'Portret 3.3', en: 'Portrait 3.3' }
     },
     {
         id: 'on-19',
-        src: '/images/obrazy/obrazy na strone/20250302_181856.jpg',
-        alt: { pl: 'Obraz 19', en: 'Painting 19' }
+        src: '/images/obrazy/obrazy na stronę/zzportrety3.jpg',
+        alt: { pl: 'Portret 3', en: 'Portrait 3' }
     },
     {
         id: 'on-20',
-        src: '/images/obrazy/obrazy na strone/20250416_173414.jpg',
-        alt: { pl: 'Obraz 20', en: 'Painting 20' }
+        src: '/images/obrazy/obrazy na stronę/zzportrety4.jpg',
+        alt: { pl: 'Portret 4', en: 'Portrait 4' }
     },
     {
         id: 'on-21',
-        src: '/images/obrazy/obrazy na strone/20260516_103649.jpg',
-        alt: { pl: 'Obraz 21', en: 'Painting 21' }
+        src: '/images/obrazy/obrazy na stronę/zzportrety5.jpg',
+        alt: { pl: 'Portret 5', en: 'Portrait 5' }
     },
     {
         id: 'on-22',
-        src: '/images/obrazy/obrazy na strone/20260516_103819.jpg',
-        alt: { pl: 'Obraz 22', en: 'Painting 22' }
+        src: '/images/obrazy/obrazy na stronę/zzportrety6.jpg',
+        alt: { pl: 'Portret 6', en: 'Portrait 6' }
     },
     {
         id: 'on-23',
-        src: '/images/obrazy/obrazy na strone/akt kobiecy, 100x70, olej na pótnie.jpg',
-        alt: { pl: 'Akt kobiecy, 100x70, olej na płótnie', en: 'Female nude, 100x70, oil on canvas' }
+        src: '/images/obrazy/obrazy na stronę/zzportrety7.jpg',
+        alt: { pl: 'Portret 7', en: 'Portrait 7' }
     },
     {
         id: 'on-24',
-        src: '/images/obrazy/obrazy na strone/babcia.jpg',
-        alt: { pl: 'Babcia', en: 'Grandma' }
+        src: '/images/obrazy/obrazy na stronę/zzportrety8.jpg',
+        alt: { pl: 'Portret 8', en: 'Portrait 8' }
     },
+
+    // Akty 1-8
     {
         id: 'on-25',
-        src: '/images/obrazy/obrazy na strone/Bez nazwy-1.jpg',
-        alt: { pl: 'Bez nazwy 1', en: 'Untitled 1' }
+        src: '/images/obrazy/obrazy na stronę/zzzakty1.jpg',
+        alt: { pl: 'Akt 1', en: 'Nude 1' }
     },
     {
         id: 'on-26',
-        src: '/images/obrazy/obrazy na strone/Bez nazwy-2.jpg',
-        alt: { pl: 'Bez nazwy 2', en: 'Untitled 2' }
+        src: '/images/obrazy/obrazy na stronę/zzzakty2.jpg',
+        alt: { pl: 'Akt 2', en: 'Nude 2' }
     },
     {
         id: 'on-27',
-        src: '/images/obrazy/obrazy na strone/Bez nazwy-3.jpg',
-        alt: { pl: 'Bez nazwy 3', en: 'Untitled 3' }
+        src: '/images/obrazy/obrazy na stronę/zzzakty3.jpg',
+        alt: { pl: 'Akt 3', en: 'Nude 3' }
     },
     {
         id: 'on-28',
-        src: '/images/obrazy/obrazy na strone/Bez nazwy-4.jpg',
-        alt: { pl: 'Bez nazwy 4', en: 'Untitled 4' }
+        src: '/images/obrazy/obrazy na stronę/zzzakty4.jpg',
+        alt: { pl: 'Akt 4', en: 'Nude 4' }
     },
     {
         id: 'on-29',
-        src: '/images/obrazy/obrazy na strone/chłop.jpg',
-        alt: { pl: 'Chłop', en: 'Boy' }
+        src: '/images/obrazy/obrazy na stronę/zzzakty5.jpg',
+        alt: { pl: 'Akt 5', en: 'Nude 5' }
     },
     {
         id: 'on-30',
-        src: '/images/obrazy/obrazy na strone/curvy-woman-posing-confidently-nude-showing-her-skin.jpg',
-        alt: { pl: 'Kobieta - akt', en: 'Woman - nude' }
+        src: '/images/obrazy/obrazy na stronę/zzzakty6.jpg',
+        alt: { pl: 'Akt 6', en: 'Nude 6' }
     },
     {
         id: 'on-31',
-        src: '/images/obrazy/obrazy na strone/IMG_20230112_174056_272.jpg',
-        alt: { pl: 'Obraz 31', en: 'Painting 31' }
+        src: '/images/obrazy/obrazy na stronę/zzzakty7.jpg',
+        alt: { pl: 'Akt 7', en: 'Nude 7' }
     },
     {
         id: 'on-32',
-        src: '/images/obrazy/obrazy na strone/IMG_20230508_142434_075.jpg',
-        alt: { pl: 'Obraz 32', en: 'Painting 32' }
+        src: '/images/obrazy/obrazy na stronę/zzzakty8.jpg',
+        alt: { pl: 'Akt 8', en: 'Nude 8' }
     },
+
+    // Struktura 1-5
     {
         id: 'on-33',
-        src: '/images/obrazy/obrazy na strone/impresjarepro-10.JPG',
-        alt: { pl: 'Impresja - repro 10', en: 'Impression - repro 10' }
+        src: '/images/obrazy/obrazy na stronę/zzzstruktura1.JPG',
+        alt: { pl: 'Struktura 1', en: 'Structure 1' }
     },
     {
         id: 'on-34',
-        src: '/images/obrazy/obrazy na strone/Justyna Środoń_1.jpg',
-        alt: { pl: 'Justyna Środoń 1', en: 'Justyna Środoń 1' }
+        src: '/images/obrazy/obrazy na stronę/zzzstruktura2.jpg',
+        alt: { pl: 'Struktura 2', en: 'Structure 2' }
     },
     {
         id: 'on-35',
-        src: '/images/obrazy/obrazy na strone/Justyna Środoń_2.jpg',
-        alt: { pl: 'Justyna Środoń 2', en: 'Justyna Środoń 2' }
+        src: '/images/obrazy/obrazy na stronę/zzzstruktura3.jpg',
+        alt: { pl: 'Struktura 3', en: 'Structure 3' }
     },
     {
         id: 'on-36',
-        src: '/images/obrazy/obrazy na strone/Justyna Środoń_3.jpg',
-        alt: { pl: 'Justyna Środoń 3', en: 'Justyna Środoń 3' }
+        src: '/images/obrazy/obrazy na stronę/zzzstruktura4.jpg',
+        alt: { pl: 'Struktura 4', en: 'Structure 4' }
     },
     {
         id: 'on-37',
-        src: '/images/obrazy/obrazy na strone/Justyna Środoń_4.jpg',
-        alt: { pl: 'Justyna Środoń 4', en: 'Justyna Środoń 4' }
+        src: '/images/obrazy/obrazy na stronę/zzzstruktura5.jpg',
+        alt: { pl: 'Struktura 5', en: 'Structure 5' }
     },
+
+    // Martwa natura
     {
         id: 'on-38',
-        src: '/images/obrazy/obrazy na strone/Justyna Środoń_Pellibus et carnibus me vestisti_grafika cyfrowa_100x70_2026.jpg',
-        alt: { pl: 'Pellibus et carnibus me vestisti - grafika cyfrowa 100x70 2026', en: 'Pellibus et carnibus me vestisti - digital print 100x70 2026' }
+        src: '/images/obrazy/obrazy na stronę/zzzzmatrwa.jpg',
+        alt: { pl: 'Martwa natura', en: 'Still life' }
     },
+
+    // Nokturn 1-3
     {
         id: 'on-39',
-        src: '/images/obrazy/obrazy na strone/Kamil.jpg',
-        alt: { pl: 'Kamil', en: 'Kamil' }
+        src: '/images/obrazy/obrazy na stronę/zzzznokturn1.jpg',
+        alt: { pl: 'Nokturn 1', en: 'Nocturne 1' }
     },
     {
         id: 'on-40',
-        src: '/images/obrazy/obrazy na strone/kolaż.jpg',
-        alt: { pl: 'Kolaż', en: 'Collage' }
+        src: '/images/obrazy/obrazy na stronę/zzzznokturn2.jpg',
+        alt: { pl: 'Nokturn 2', en: 'Nocturne 2' }
     },
     {
         id: 'on-41',
-        src: '/images/obrazy/obrazy na strone/mikasowe.jpg',
-        alt: { pl: 'Mikasowe', en: 'Mikasowe' }
+        src: '/images/obrazy/obrazy na stronę/zzzznokturn3.jpg',
+        alt: { pl: 'Nokturn 3', en: 'Nocturne 3' }
     },
+
+    // Twarze 1-2
     {
         id: 'on-42',
-        src: '/images/obrazy/obrazy na strone/na zakręcie.jpg',
-        alt: { pl: 'Na zakręcie', en: 'On the bend' }
+        src: '/images/obrazy/obrazy na stronę/zzzztwarze.jpg',
+        alt: { pl: 'Twarze 1', en: 'Faces 1' }
     },
     {
         id: 'on-43',
-        src: '/images/obrazy/obrazy na strone/nokturn.jpg',
-        alt: { pl: 'Nokturn', en: 'Nocturne' }
-    },
-    {
-        id: 'on-44',
-        src: '/images/obrazy/obrazy na strone/sdfgh.jpg',
-        alt: { pl: 'Obraz 44', en: 'Painting 44' }
-    },
-
-    // --- obrazy/obrazy na strone/Nowy folder/ ---
-    {
-        id: 'nf-1',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/_MG_1558.JPG',
-        alt: { pl: 'Obraz 45', en: 'Painting 45' }
-    },
-    {
-        id: 'nf-2',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20211201_113037.jpg',
-        alt: { pl: 'Obraz 46', en: 'Painting 46' }
-    },
-    {
-        id: 'nf-3',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20211201_113051.jpg',
-        alt: { pl: 'Obraz 47', en: 'Painting 47' }
-    },
-    {
-        id: 'nf-4',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20211201_113054.jpg',
-        alt: { pl: 'Obraz 48', en: 'Painting 48' }
-    },
-    {
-        id: 'nf-5',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20211201_113128.jpg',
-        alt: { pl: 'Obraz 49', en: 'Painting 49' }
-    },
-    {
-        id: 'nf-6',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20211201_113203.jpg',
-        alt: { pl: 'Obraz 50', en: 'Painting 50' }
-    },
-    {
-        id: 'nf-7',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20211222_105647.jpg',
-        alt: { pl: 'Obraz 51', en: 'Painting 51' }
-    },
-    {
-        id: 'nf-8',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20220119_122942.jpg',
-        alt: { pl: 'Obraz 52', en: 'Painting 52' }
-    },
-    {
-        id: 'nf-9',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20220311_233818.jpg',
-        alt: { pl: 'Obraz 53', en: 'Painting 53' }
-    },
-    {
-        id: 'nf-10',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20220311_234638.jpg',
-        alt: { pl: 'Obraz 54', en: 'Painting 54' }
-    },
-    {
-        id: 'nf-11',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20220408_145325.jpg',
-        alt: { pl: 'Obraz 55', en: 'Painting 55' }
-    },
-    {
-        id: 'nf-12',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20220421_173035.jpg',
-        alt: { pl: 'Obraz 56', en: 'Painting 56' }
-    },
-    {
-        id: 'nf-13',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20220617_213914.jpg',
-        alt: { pl: 'Obraz 57', en: 'Painting 57' }
-    },
-    {
-        id: 'nf-14',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20220617_222831.jpg',
-        alt: { pl: 'Obraz 58', en: 'Painting 58' }
-    },
-    {
-        id: 'nf-15',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20220618_105927.jpg',
-        alt: { pl: 'Obraz 59', en: 'Painting 59' }
-    },
-    {
-        id: 'nf-16',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20230103_191745.jpg',
-        alt: { pl: 'Obraz 60', en: 'Painting 60' }
-    },
-    {
-        id: 'nf-17',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20230112_155653.jpg',
-        alt: { pl: 'Obraz 61', en: 'Painting 61' }
-    },
-    {
-        id: 'nf-18',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20230130_104740.jpg',
-        alt: { pl: 'Obraz 62', en: 'Painting 62' }
-    },
-    {
-        id: 'nf-19',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20230616_111243.jpg',
-        alt: { pl: 'Obraz 63', en: 'Painting 63' }
-    },
-    {
-        id: 'nf-20',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20231110_182602.jpg',
-        alt: { pl: 'Obraz 64', en: 'Painting 64' }
-    },
-    {
-        id: 'nf-21',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/20240221_154028.jpg',
-        alt: { pl: 'Obraz 65', en: 'Painting 65' }
-    },
-    {
-        id: 'nf-22',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/Bez nazwy-1 — Odzyskano.jpg',
-        alt: { pl: 'Bez nazwy 1 - Odzyskano', en: 'Untitled 1 - Recovered' }
-    },
-    {
-        id: 'nf-23',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/brzuch1.jpg',
-        alt: { pl: 'Brzuch 1', en: 'Belly 1' }
-    },
-    {
-        id: 'nf-24',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/IMG_20230109_191315_895.jpg',
-        alt: { pl: 'Obraz 66', en: 'Painting 66' }
-    },
-    {
-        id: 'nf-25',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/IMG_20230508_142620_870.jpg',
-        alt: { pl: 'Obraz 67', en: 'Painting 67' }
-    },
-    {
-        id: 'nf-26',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/IMG_20230512_144835_394.jpg',
-        alt: { pl: 'Obraz 68', en: 'Painting 68' }
-    },
-    {
-        id: 'nf-27',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/modelka.jpg',
-        alt: { pl: 'Modelka', en: 'Model' }
-    },
-    {
-        id: 'nf-28',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/Środoń_Justyna,1,bez_tytułu,2023,olej_na_płótnie,50x70 (2).jpg',
-        alt: { pl: 'Bez tytułu, 2023, olej na płótnie, 50x70', en: 'Untitled, 2023, oil on canvas, 50x70' }
-    },
-    {
-        id: 'nf-29',
-        src: '/images/obrazy/obrazy na strone/Nowy folder/Środoń_Justyna,2,bez_tytułu,2023,olej_na_płótnie,60x80.jpg',
-        alt: { pl: 'Bez tytułu, 2023, olej na płótnie, 60x80', en: 'Untitled, 2023, oil on canvas, 60x80' }
+        src: '/images/obrazy/obrazy na stronę/zzzztwarze2.jpg',
+        alt: { pl: 'Twarze 2', en: 'Faces 2' }
     },
 ];

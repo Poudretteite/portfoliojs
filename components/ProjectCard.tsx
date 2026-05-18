@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { Project } from '@/lib/projects';
+import VideoModal from './VideoModal';
 
 export default function ProjectCard({
   project,
@@ -14,10 +15,11 @@ export default function ProjectCard({
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   // Prevent background scrolling when modal is open
   useEffect(() => {
-    if (isModalOpen || isGalleryOpen) {
+    if (isModalOpen || isGalleryOpen || isVideoModalOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -25,7 +27,7 @@ export default function ProjectCard({
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isModalOpen, isGalleryOpen]);
+  }, [isModalOpen, isGalleryOpen, isVideoModalOpen]);
 
   return (
     <>
@@ -65,12 +67,26 @@ export default function ProjectCard({
                   {project.shortDescription[lang]}
                 </p>
 
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="mt-4 w-fit group flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-white/50 hover:text-white transition-colors"
-                >
-                  {lang === 'pl' ? 'Szczegóły' : 'Details'}
-                </button>
+                <div className="flex flex-wrap gap-6 mt-4">
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-fit group flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-white/50 hover:text-white transition-colors"
+                  >
+                    {lang === 'pl' ? 'Szczegóły' : 'Details'}
+                  </button>
+
+                  {project.videos && project.videos.length > 0 && (
+                    <button
+                      onClick={() => setIsVideoModalOpen(true)}
+                      className="w-fit group flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-white/50 hover:text-white transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                      {lang === 'pl' ? 'Zobacz film' : 'Watch video'}
+                    </button>
+                  )}
+                </div>
               </div>
 
             </div>
@@ -197,6 +213,17 @@ export default function ProjectCard({
           </div>
         )}
       </AnimatePresence>
+
+      {/* Video Modal */}
+      {project.videos && project.videos.length > 0 && (
+        <VideoModal
+          videos={project.videos}
+          title={project.title[lang]}
+          lang={lang}
+          isOpen={isVideoModalOpen}
+          onClose={() => setIsVideoModalOpen(false)}
+        />
+      )}
     </>
   );
 }

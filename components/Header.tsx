@@ -18,9 +18,10 @@ export default function Header({
   const [isScrolledPastBio, setIsScrolledPastBio] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (isGalleryOpen) {
+    if (isGalleryOpen || isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -28,7 +29,7 @@ export default function Header({
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isGalleryOpen]);
+  }, [isGalleryOpen, isMobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,6 +48,8 @@ export default function Header({
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <>
@@ -67,24 +70,89 @@ export default function Header({
           </AnimatePresence>
         </div>
 
-        <nav className="flex items-center gap-4 md:gap-6 text-xs md:text-sm tracking-widest uppercase">
-          <a href="#bio" className="text-white/50 hover:text-white transition-colors hidden sm:block">{navDict.bio}</a>
-          <a href="#portfolio" className="text-white/50 hover:text-white transition-colors">{navDict.portfolio}</a>
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-6 text-sm tracking-widest uppercase">
+          <a href="#bio" className="text-white/50 hover:text-white transition-colors shrink-0">{navDict.bio}</a>
+          <a href="#portfolio" className="text-white/50 hover:text-white transition-colors shrink-0">{navDict.portfolio}</a>
 
           <button
             onClick={() => setIsGalleryOpen(true)}
-            className="text-white/50 hover:text-white transition-colors uppercase tracking-widest"
+            className="text-white/50 hover:text-white transition-colors uppercase tracking-widest shrink-0"
           >
-            {lang === 'pl' ? 'Galeria' : 'Gallery'}
+            {lang === 'pl' ? 'Sztuka' : 'Artworks'}
           </button>
 
-          <a href="#exhibitions" className="text-white/50 hover:text-white transition-colors">{navDict.exhibitions}</a>
+          <a href="#exhibitions" className="text-white/50 hover:text-white transition-colors shrink-0">{navDict.exhibitions}</a>
 
-          <a href="#contact" className="text-white/50 hover:text-white transition-colors">{navDict.contact}</a>
+          <a href="#contact" className="text-white/50 hover:text-white transition-colors shrink-0">{navDict.contact}</a>
 
           <LanguageSwitcher currentLang={lang} navDict={navDict} />
         </nav>
+
+        {/* Mobile hamburger button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden flex flex-col items-center justify-center w-10 h-10 gap-1.5 text-white/70 hover:text-white transition-colors"
+          aria-label={lang === 'pl' ? 'Menu' : 'Menu'}
+        >
+          <span className={`block w-6 h-[1.5px] bg-current transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-[5.5px]' : ''}`} />
+          <span className={`block w-6 h-[1.5px] bg-current transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+          <span className={`block w-6 h-[1.5px] bg-current transition-transform duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-[5.5px]' : ''}`} />
+        </button>
       </header>
+
+      {/* Mobile menu overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-30 bg-black/95 backdrop-blur-md flex flex-col items-center justify-center md:hidden"
+          >
+            <nav className="flex flex-col items-center gap-10 text-lg tracking-[0.3em] uppercase">
+              <a
+                href="#bio"
+                onClick={closeMobileMenu}
+                className="text-white/60 hover:text-white transition-colors"
+              >
+                {navDict.bio}
+              </a>
+              <a
+                href="#portfolio"
+                onClick={closeMobileMenu}
+                className="text-white/60 hover:text-white transition-colors"
+              >
+                {navDict.portfolio}
+              </a>
+              <button
+                onClick={() => { setIsGalleryOpen(true); closeMobileMenu(); }}
+                className="text-white/60 hover:text-white transition-colors uppercase tracking-[0.3em]"
+              >
+                {lang === 'pl' ? 'Sztuka' : 'Artworks'}
+              </button>
+              <a
+                href="#exhibitions"
+                onClick={closeMobileMenu}
+                className="text-white/60 hover:text-white transition-colors"
+              >
+                {navDict.exhibitions}
+              </a>
+              <a
+                href="#contact"
+                onClick={closeMobileMenu}
+                className="text-white/60 hover:text-white transition-colors"
+              >
+                {navDict.contact}
+              </a>
+              <div className="mt-4">
+                <LanguageSwitcher currentLang={lang} navDict={navDict} />
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Globalny Modal Galerii */}
       <AnimatePresence>
@@ -106,23 +174,38 @@ export default function Header({
                 {lang === 'pl' ? 'Wszystkie prace' : 'All works'}
               </h4>
 
-              {/* Masonry layout: columns break into natural flow without gaps between rows */}
-              <div className="w-full max-w-7xl mx-auto columns-1 md:columns-2 gap-4 md:gap-6 space-y-4 md:space-y-6">
-
-                {galleryImages.map((img) => (
-                  <div key={img.id} className="relative w-full shadow-2xl break-inside-avoid">
-                    <Image
-                      src={img.src}
-                      alt={img.alt[lang]}
-                      width={0}
-                      height={0}
-                      unoptimized
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="w-full h-auto rounded-sm"
-                    />
-                  </div>
-                ))}
-
+              {/* Left-to-right masonry: images split into two columns, each column flows vertically without gaps */}
+              <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row gap-4 md:gap-6">
+                <div className="flex-1 flex flex-col gap-4 md:gap-6">
+                  {galleryImages.filter((_, i) => i % 2 === 0).map((img) => (
+                    <div key={img.id} className="relative w-full shadow-2xl">
+                      <Image
+                        src={img.src}
+                        alt={img.alt[lang]}
+                        width={0}
+                        height={0}
+                        unoptimized
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="w-full h-auto rounded-sm"
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="flex-1 flex flex-col gap-4 md:gap-6">
+                  {galleryImages.filter((_, i) => i % 2 !== 0).map((img) => (
+                    <div key={img.id} className="relative w-full shadow-2xl">
+                      <Image
+                        src={img.src}
+                        alt={img.alt[lang]}
+                        width={0}
+                        height={0}
+                        unoptimized
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="w-full h-auto rounded-sm"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

@@ -22,7 +22,7 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next)
-    '/((?!_next|images|api|favicon.ico).*)',
+    // Skip all internal paths (_next) and static assets
+    '/((?!_next|images|videos|api|favicon.ico).*)',
   ],
 };

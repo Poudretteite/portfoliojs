@@ -3,7 +3,7 @@ const dictionaries = {
     hero: {
       title: 'Justyna Środoń',
       subtitle: '(ur. 2001 r. w Rzeszowie)',
-      bio: "Artystka wizualna, poruszająca się na styku malarstwa i struktur graficznych. Obecnie studentka studiów magisterskich w Instytucie Sztuk Pięknych Uniwersytetu Rzeszowskiego. </br></br> W swojej praktyce twórczej bada wielowymiarowość przemijania, poszukując na płótnie subtelnych powidoków przeszłości i śladów ludzkiej obecności. Jej malarstwo charakteryzuje się wrażliwością na materię – eksperymentuje z podłożami i strukturami, wprowadzając do prac piasek, który nadaje im organiczny, ziarnisty charakter. Temat ulotności i pamięci rozwija obecnie w powstającej pracy magisterskiej, równolegle budując autorskie podejście do portretu jako zapisu ludzkiej natury. Poza pracą w pracowni angażuję się w realizację projektów wystawienniczych, prezentując swoją twórczość w kraju i za granicą.",
+      bio: "Artystka wizualna, poruszająca się na styku malarstwa i struktur graficznych. Obecnie studentka studiów magisterskich na Wydziale Sztuk Pięknych Uniwersytetu Rzeszowskiego. </br></br> W swojej praktyce twórczej bada wielowymiarowość przemijania, poszukując na płótnie subtelnych powidoków przeszłości i śladów ludzkiej obecności. Jej malarstwo charakteryzuje się wrażliwością na materię – eksperymentuje z podłożami i strukturami, wprowadzając do prac piasek, który nadaje im organiczny, ziarnisty charakter. Temat ulotności i pamięci rozwija obecnie w powstającej pracy magisterskiej, równolegle budując autorskie podejście do portretu jako zapisu ludzkiej natury. Poza pracą w pracowni angażuję się w realizację projektów wystawienniczych, prezentując swoją twórczość w kraju i za granicą.",
     },
     portfolio: {
       title: 'Galeria Projektów',
@@ -20,7 +20,7 @@ const dictionaries = {
       language: 'EN',
       langCode: 'en',
       bio: 'O mnie',
-      portfolio: 'Portfolio',
+      portfolio: 'Projekty',
       exhibitions: 'Wystawy',
       contact: 'Kontakt'
     }
@@ -47,7 +47,7 @@ const dictionaries = {
       langCode: 'pl',
       bio: 'About',
       exhibitions: 'Exhibitions',
-      portfolio: 'Portfolio',
+      portfolio: 'Projects',
       contact: 'Contact'
     }
   },
