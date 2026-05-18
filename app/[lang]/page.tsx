@@ -6,29 +6,45 @@ import Header from '@/components/Header';
 import ProjectCard from '@/components/ProjectCard';
 import FadeIn from '@/components/FadeIn';
 
-import BioSection from '@/components/BioSection';
-
 export default async function Home({ params }: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await params;
   const dict = getDictionary(lang);
-  const plDict = getDictionary('pl');
-  const enDict = getDictionary('en');
 
   return (
     <div className="min-h-screen flex flex-col">
       <Header lang={lang} navDict={dict.nav} artistName={dict.hero.title} />
 
-      <BioSection
-        title={dict.hero.title}
-        bioPl={plDict.hero.bio}
-        bioEn={enDict.hero.bio}
-        initialLang={lang} // Ustawia domyślny język na taki, jaki ma cała strona na start
-      />
+      {/* Bio Section */}
+      <section
+        id="bio"
+        className="relative w-full mb-8 md:mb-12 scroll-mt-32 min-h-[40vh] lg:min-h-[50vh] flex flex-col justify-center overflow-hidden pt-24 pb-8"
+      >
+        <div className="relative z-10 w-full px-6 md:px-8 lg:px-12 flex">
+          <div className="w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl text-left">
+
+            <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-8 mb-2">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white/90 drop-shadow-xl">
+                {dict.hero.title}
+              </h2>
+            </div>
+
+            <p className="text-base md:text-lg text-white/50 font-light tracking-wide mb-8 drop-shadow-lg">
+              {dict.hero.subtitle}
+            </p>
+
+            <div
+              className="text-lg lg:pr-80 md:text-lg text-white/80 font-thin leading-relaxed drop-shadow-lg [&_strong]:font-medium [&_strong]:text-white/90 [&_br]:block [&_br]:content-[''] [&_br]:my-2"
+              dangerouslySetInnerHTML={{ __html: dict.hero.bio.replace(/\n/g, '<br/>') }}
+            />
+
+          </div>
+        </div>
+      </section>
 
       <main className="flex-1 w-full max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12">
 
         {/* Portfolio List */}
-        <section id="portfolio" className="w-full flex flex-col pt-8">
+        <section id="portfolio" className="w-full flex flex-col pt-30">
 
           <div className="flex items-center justify-center w-full">
             <hr className="flex-grow border-t border-white/20" />

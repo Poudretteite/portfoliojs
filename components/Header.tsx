@@ -81,6 +81,8 @@ export default function Header({
           <a href="#exhibitions" className="text-white/50 hover:text-white transition-colors">{navDict.exhibitions}</a>
 
           <a href="#contact" className="text-white/50 hover:text-white transition-colors">{navDict.contact}</a>
+
+          <LanguageSwitcher currentLang={lang} navDict={navDict} />
         </nav>
       </header>
 
@@ -104,10 +106,11 @@ export default function Header({
                 {lang === 'pl' ? 'Wszystkie prace' : 'All works'}
               </h4>
 
-              <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+              {/* Masonry layout: columns break into natural flow without gaps between rows */}
+              <div className="w-full max-w-7xl mx-auto columns-1 md:columns-2 gap-4 md:gap-6 space-y-4 md:space-y-6">
 
                 {galleryImages.map((img) => (
-                  <div key={img.id} className="relative w-full shadow-2xl shrink-0">
+                  <div key={img.id} className="relative w-full shadow-2xl break-inside-avoid">
                     <Image
                       src={img.src}
                       alt={img.alt[lang]}

@@ -2,7 +2,8 @@ const dictionaries = {
   pl: {
     hero: {
       title: 'Justyna Środoń',
-      bio: "(ur. 2001 r. w Rzeszowie). Jestem artystką wizualną. Obecnie studiuję na Wydziale Sztuk Pięknych Uniwersytetu Rzeszowskiego, gdzie równolegle realizuję studia na kierunkach Malarstwo oraz Sztuki Wizualne (II stopień).\n\nW mojej pracy twórczej często poruszam intymny temat przemijania, poszukując na płótnie i w strukturach graficznych subtelnych powidoków przeszłości. Ważnym filarem moich poszukiwań artystycznych jest również portret, który traktuję jako narzędzie do głębokiego odkrywania i mapowania ludzkiej natury.\n\nMój dotychczasowy dorobek obejmuje kilkadziesiąt wystaw zbiorowych oraz indywidualnych, w tym projekty o charakterze międzynarodowym.",
+      subtitle: '(ur. 2001 r. w Rzeszowie)',
+      bio: "Artystka wizualna, poruszająca się na styku malarstwa i struktur graficznych. Obecnie studentka studiów magisterskich w Instytucie Sztuk Pięknych Uniwersytetu Rzeszowskiego. </br></br> W swojej praktyce twórczej bada wielowymiarowość przemijania, poszukując na płótnie subtelnych powidoków przeszłości i śladów ludzkiej obecności. Jej malarstwo charakteryzuje się wrażliwością na materię – eksperymentuje z podłożami i strukturami, wprowadzając do prac piasek, który nadaje im organiczny, ziarnisty charakter. Temat ulotności i pamięci rozwija obecnie w powstającej pracy magisterskiej, równolegle budując autorskie podejście do portretu jako zapisu ludzkiej natury. Poza pracą w pracowni angażuję się w realizację projektów wystawienniczych, prezentując swoją twórczość w kraju i za granicą.",
     },
     portfolio: {
       title: 'Galeria Projektów',
@@ -27,7 +28,8 @@ const dictionaries = {
   en: {
     hero: {
       title: 'Justyna Środoń',
-      bio: '(b. 2001, Rzeszów, Poland). I am a visual artist. Currently, I study at the Faculty of Fine Arts of the University of Rzeszów, where I am concurrently pursuing degrees in Painting and Visual Arts (Master’s level).\n\nIn my creative practice, I frequently touch upon the intimate theme of passing, seeking subtle afterimages of the past within canvas and print structures. Another vital pillar of my artistic exploration is portraiture, which I approach as a profound tool for uncovering and mapping human nature.\n\nMy professional portfolio includes dozens of group and solo exhibitions, including international artistic and research projects.'
+      subtitle: '(b. 2001, Rzeszów)',
+      bio: "A visual artist working at the intersection of painting and graphic structures, currently pursuing her MFA at the Institute of Fine Arts of the University of Rzeszów. </br></br> Her creative practice explores the multidimensionality of ephemerality, searching the canvas for subtle afterimages of the past and traces of human presence. Her painting is defined by a deep sensitivity to matter; she experiments with surfaces and textures, incorporating sand to give her works an organic, grainy substance. This fascination with fleetingness and memory is the core of her ongoing master's thesis, developed alongside an original approach to portraiture as a record of human nature. Beyond her studio work, she is involved in curating exhibition projects and actively showcases her work both in Poland and abroad.",
     },
     portfolio: {
       title: 'Project Gallery',
