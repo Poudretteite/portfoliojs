@@ -4,16 +4,19 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import LanguageSwitcher from './LanguageSwitcher';
-import { galleryImages } from '@/lib/gallery';
+import { urlFor } from '@/sanity/lib/image';
+import type { GalleryImage } from '@/sanity/lib/types';
 
 export default function Header({
   lang,
   navDict,
-  artistName
+  artistName,
+  galleryImages
 }: {
   lang: 'pl' | 'en',
   navDict: { language: string, langCode: string, bio: string, portfolio: string, exhibitions: string, contact: string },
-  artistName: string
+  artistName: string,
+  galleryImages: GalleryImage[]
 }) {
   const [isScrolledPastBio, setIsScrolledPastBio] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
@@ -72,19 +75,21 @@ export default function Header({
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6 text-sm tracking-widest uppercase">
-          <a href="#bio" className="text-white/50 hover:text-white transition-colors shrink-0">{navDict.bio}</a>
-          <a href="#portfolio" className="text-white/50 hover:text-white transition-colors shrink-0">{navDict.portfolio}</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-white/50 hover:text-white transition-colors shrink-0">{navDict.bio}</a>
+          <a href="#portfolio" onClick={(e) => { e.preventDefault(); document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-white/50 hover:text-white transition-colors shrink-0">{navDict.portfolio}</a>
 
-          <button
-            onClick={() => setIsGalleryOpen(true)}
-            className="text-white/50 hover:text-white transition-colors uppercase tracking-widest shrink-0"
-          >
-            {lang === 'pl' ? 'Sztuka' : 'Artworks'}
-          </button>
+          {galleryImages.length > 0 && (
+            <button
+              onClick={() => setIsGalleryOpen(true)}
+              className="text-white/50 hover:text-white transition-colors uppercase tracking-widest shrink-0"
+            >
+              {lang === 'pl' ? 'Sztuka' : 'Artworks'}
+            </button>
+          )}
 
-          <a href="#exhibitions" className="text-white/50 hover:text-white transition-colors shrink-0">{navDict.exhibitions}</a>
+          <a href="#exhibitions" onClick={(e) => { e.preventDefault(); document.getElementById('exhibitions')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-white/50 hover:text-white transition-colors shrink-0">{navDict.exhibitions}</a>
 
-          <a href="#contact" className="text-white/50 hover:text-white transition-colors shrink-0">{navDict.contact}</a>
+          <a href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-white/50 hover:text-white transition-colors shrink-0">{navDict.contact}</a>
 
           <LanguageSwitcher currentLang={lang} navDict={navDict} />
         </nav>
@@ -113,35 +118,37 @@ export default function Header({
           >
             <nav className="flex flex-col items-center gap-10 text-lg tracking-[0.3em] uppercase">
               <a
-                href="#bio"
-                onClick={closeMobileMenu}
+                href="#"
+                onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); closeMobileMenu(); }}
                 className="text-white/60 hover:text-white transition-colors"
               >
                 {navDict.bio}
               </a>
               <a
                 href="#portfolio"
-                onClick={closeMobileMenu}
+                onClick={(e) => { e.preventDefault(); document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' }); closeMobileMenu(); }}
                 className="text-white/60 hover:text-white transition-colors"
               >
                 {navDict.portfolio}
               </a>
-              <button
-                onClick={() => { setIsGalleryOpen(true); closeMobileMenu(); }}
-                className="text-white/60 hover:text-white transition-colors uppercase tracking-[0.3em]"
-              >
-                {lang === 'pl' ? 'Sztuka' : 'Artworks'}
-              </button>
+              {galleryImages.length > 0 && (
+                <button
+                  onClick={() => { setIsGalleryOpen(true); closeMobileMenu(); }}
+                  className="text-white/60 hover:text-white transition-colors uppercase tracking-[0.3em]"
+                >
+                  {lang === 'pl' ? 'Sztuka' : 'Artworks'}
+                </button>
+              )}
               <a
                 href="#exhibitions"
-                onClick={closeMobileMenu}
+                onClick={(e) => { e.preventDefault(); document.getElementById('exhibitions')?.scrollIntoView({ behavior: 'smooth' }); closeMobileMenu(); }}
                 className="text-white/60 hover:text-white transition-colors"
               >
                 {navDict.exhibitions}
               </a>
               <a
                 href="#contact"
-                onClick={closeMobileMenu}
+                onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); closeMobileMenu(); }}
                 className="text-white/60 hover:text-white transition-colors"
               >
                 {navDict.contact}
@@ -174,17 +181,15 @@ export default function Header({
                 {lang === 'pl' ? 'Wszystkie prace' : 'All works'}
               </h4>
 
-              {/* Left-to-right masonry: images split into two columns, each column flows vertically without gaps */}
               <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row gap-4 md:gap-6">
                 <div className="flex-1 flex flex-col gap-4 md:gap-6">
-                  {galleryImages.filter((_, i) => i % 2 === 0).map((img) => (
-                    <div key={img.id} className="relative w-full shadow-2xl">
+                  {galleryImages.filter((_, i) => i % 2 === 0).map((img, idx) => (
+                    <div key={`left-${idx}`} className="relative w-full shadow-2xl">
                       <Image
-                        src={img.src}
-                        alt={img.alt[lang]}
+                        src={urlFor(img).width(1200).url()}
+                        alt={`${lang === 'pl' ? 'Praca' : 'Artwork'} ${idx * 2 + 1}`}
                         width={0}
                         height={0}
-                        unoptimized
                         sizes="(max-width: 768px) 100vw, 50vw"
                         className="w-full h-auto rounded-sm"
                       />
@@ -192,14 +197,13 @@ export default function Header({
                   ))}
                 </div>
                 <div className="flex-1 flex flex-col gap-4 md:gap-6">
-                  {galleryImages.filter((_, i) => i % 2 !== 0).map((img) => (
-                    <div key={img.id} className="relative w-full shadow-2xl">
+                  {galleryImages.filter((_, i) => i % 2 !== 0).map((img, idx) => (
+                    <div key={`right-${idx}`} className="relative w-full shadow-2xl">
                       <Image
-                        src={img.src}
-                        alt={img.alt[lang]}
+                        src={urlFor(img).width(1200).url()}
+                        alt={`${lang === 'pl' ? 'Praca' : 'Artwork'} ${idx * 2 + 2}`}
                         width={0}
                         height={0}
-                        unoptimized
                         sizes="(max-width: 768px) 100vw, 50vw"
                         className="w-full h-auto rounded-sm"
                       />

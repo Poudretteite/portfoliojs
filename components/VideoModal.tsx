@@ -2,9 +2,22 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { fileUrl } from '@/sanity/lib/file';
+
+type VideoItem = {
+  type: 'video' | 'youtube' | 'facebook';
+
+  file?: {
+    asset: {
+      _ref: string;
+    };
+  };
+
+  url?: string;
+};
 
 interface VideoModalProps {
-  videos: string[];
+  videos: VideoItem[];
   title: string;
   lang: 'pl' | 'en';
   isOpen: boolean;
@@ -23,14 +36,6 @@ function getYouTubeThumbnail(url: string): string | null {
   return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : null;
 }
 
-function isYouTubeUrl(url: string): boolean {
-  return /(?:youtube\.com|youtu\.be)/.test(url);
-}
-
-function isFacebookUrl(url: string): boolean {
-  return /facebook\.com/.test(url);
-}
-
 export default function VideoModal({
   videos,
   title,
@@ -40,9 +45,12 @@ export default function VideoModal({
 }: VideoModalProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const currentVideo = videos[activeIndex];
-  const isYouTube = isYouTubeUrl(currentVideo);
-  const isFacebook = isFacebookUrl(currentVideo);
+const currentVideo = videos[activeIndex];
+
+const isYouTube = currentVideo?.type === 'youtube';
+const isFacebook = currentVideo?.type === 'facebook';
+const isFileVideo = currentVideo?.type === 'video';
+
   const hasMultiple = videos.length > 1;
 
   return (
@@ -86,16 +94,16 @@ export default function VideoModal({
             <div className="relative w-full aspect-video bg-black rounded-lg overflow-hidden mb-6">
               {isYouTube ? (
                 <iframe
-                  key={currentVideo}
-                  src={`https://www.youtube.com/embed/${getYouTubeId(currentVideo)}?autoplay=1&rel=0`}
+                  key={activeIndex}
+                  src={`https://www.youtube.com/embed/${getYouTubeId(currentVideo.url ?? '')}?autoplay=1&rel=0`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   className="absolute inset-0 w-full h-full"
                 />
               ) : isFacebook ? (
                 <iframe
-                  key={currentVideo}
-                  src={currentVideo}
+                  key={activeIndex}
+                  src={currentVideo.url}
                   className="absolute inset-0 w-full h-full"
                   style={{ border: 'none', overflow: 'hidden' }}
                   scrolling="no"
@@ -105,13 +113,18 @@ export default function VideoModal({
                 />
               ) : (
                 <video
-                  key={currentVideo}
+                  key={activeIndex}
                   controls
                   autoPlay
                   playsInline
                   className="absolute inset-0 w-full h-full object-contain"
                 >
-                  <source src={currentVideo} type="video/mp4" />
+                  {currentVideo.file?.asset._ref && (
+                    <source
+                      src={fileUrl(currentVideo.file.asset._ref)}
+                      type="video/mp4"
+                    />
+                  )}
                   {lang === 'pl'
                     ? 'Twoja przeglądarka nie obsługuje odtwarzacza wideo.'
                     : 'Your browser does not support the video player.'}
@@ -123,7 +136,9 @@ export default function VideoModal({
             {hasMultiple && (
               <div className="flex gap-3 overflow-x-auto pb-2">
                 {videos.map((video, idx) => {
-                  const thumb = getYouTubeThumbnail(video);
+                  const thumb = video.type === 'youtube'
+                    ? getYouTubeThumbnail(video.url ?? '')
+                    : null;
                   return (
                     <button
                       key={idx}
